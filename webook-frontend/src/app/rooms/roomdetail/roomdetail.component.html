@@ -1,0 +1,70 @@
+
+<div
+  *ngIf="room"
+  class="md:space-y-6 sm:p-8 max-w-bg bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+>
+  <a [routerLink]="['/rooms', room._id]">
+    <img
+      *ngIf="room.pictures.length"
+      src="http://localhost:3000/rooms/{{ room._id }}/pictures/{{
+        room.pictures[0].pictureName
+      }}"
+      width="300"
+      alt="Room picture"
+    /><br />
+  </a>
+  <div class="p-5">
+    <a [routerLink]="['/rooms', room._id]">
+      <h5
+        class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+      >
+        {{ room.hotel_name }}
+      </h5>
+    </a>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+      Type: {{ room.type }}
+    </p>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+      Price per day: {{ room.price_per_day }}
+    </p>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+      {{ room.hotel_name }}
+    </p>
+    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+      Available for today: {{ room.available }}
+    </p>
+
+    <button
+      class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      (click)="goToAddReservation()"
+    >
+      Book Now</button
+    ><br />
+  </div>
+
+  <br />
+  <input
+    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    *ngIf="state.role === 'admin'"
+    type="file"
+    (change)="onFileSelection($event)"
+  /><br />
+  <br>
+
+  <button
+    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    *ngIf="state.role === 'admin'"
+    (click)="addPicture()">
+    Add Picture</button>  &nbsp; &nbsp; &nbsp;
+  <button class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+    *ngIf="state.role === 'admin'"
+    (click)="gotToRoomUpdate()">
+    Update Room
+  </button>
+  &nbsp; &nbsp;
+  <button class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" *ngIf="state.role === 'admin'" (click)="deleteRoom()">
+    Remove Room</button
+  ><br />
+  <br />
+
+</div>

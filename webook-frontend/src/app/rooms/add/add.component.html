@@ -1,0 +1,52 @@
+
+<section class="bg-gray-50 dark:bg-gray-900">
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                    Add Room
+                </h1> 
+                <form *ngIf="!createdRoom._id; else showCreatedInfo" [formGroup]="addRoomForm" (ngSubmit)="addNow()"class="space-y-4 md:space-y-6">
+                    <div>
+
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="type">Room type: </label><br>
+                        <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text"  formControlName="type"><br>
+                    
+                    </div>
+                    <div>
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="price_per_day">Price per day: </label><br>
+                        <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="number" formControlName="price_per_day"><br>
+                    
+                    </div>
+                   <div>
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="hotel_name">Hotel name: </label><br>
+                    <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text"  formControlName="hotel_name"><br>
+                
+                    </div>
+                    <div>
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="longitude">Location: Longitude</label><br>
+                        <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="number"  formControlName="longitude"><br>
+                    </div>
+                    <div>
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="latitude">Location: Latitude</label><br>
+                        <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="number"  formControlName="latitude"><br>
+                    </div>
+                    <button class="hover:bg-blue-800 dark:bg-blue-600 w-full text-red bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="submit" [disabled]="addRoomForm.invalid">Submit</button>
+                </form>
+  
+                <ng-template #showCreatedInfo>
+                    <div >
+                        <h2 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Here are your new room details: </h2>
+                        <p class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Room type: {{createdRoom.type}}</p>
+                        <p class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Hotel name: {{createdRoom.hotel_name}}</p>
+                        <p class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price per day: {{createdRoom.price_per_day}}</p>
+                        <p class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Available today: {{createdRoom.available}}</p>
+                        <p class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Location: {{createdRoom.location}}</p>
+                    </div>
+                </ng-template>
+                
+                
+            </div>
+        </div>
+    </div>
+  </section>

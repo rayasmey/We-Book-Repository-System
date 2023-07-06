@@ -1,0 +1,16 @@
+
+<div *ngIf="reservation" class="  md:space-y-6 sm:p-8 max-w-bg bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+   
+  <div class="p-5">
+     
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Guest Name: {{ reservation.guest.name }}</p>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Guest Phone: {{ reservation.guest.phone }}</p>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Check-In Date: {{ reservation.checkInDate }}</p>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Check-Out Date: {{ reservation.checkOutDate }} </p>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Hotel: {{ reservation.hotel_name }}</p>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Room type: {{ reservation.room_type }}</p>
+      <button (click)="goToUpdate()"  class="hover:bg-blue-800 dark:bg-blue-600 w-full text-red bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Update Reservation</button>
+      <button (click)="deleteReservation()" class="hover:bg-blue-800 dark:bg-blue-600 w-full text-red bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Cancel Reservation</button>
+
+  </div>
+</div>

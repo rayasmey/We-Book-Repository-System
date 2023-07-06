@@ -1,0 +1,44 @@
+
+<section class="bg-gray-50 dark:bg-gray-900">
+  <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+          <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+              <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                  Book Room
+              </h1> 
+              <form *ngIf="!createdReservation._id; else showResForm" [formGroup]="reservationForm" (ngSubmit)="bookNow()" class="space-y-4 md:space-y-6">
+                  <div>
+                    <label for="guest_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Guest Name</label><br>
+                    <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" formControlName="guest_name"><br>
+                 </div>
+                  <div>
+                    <label for="guest_phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Guest Phone</label><br>
+                    <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" formControlName="guest_phone"><br>
+                 </div>
+                 <div>
+                    <label for="checkInDate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Check-In Date</label><br>
+                    <input type="date" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" formControlName="checkInDate"><br>
+                 </div>
+                  <div>
+                    <label for="checkOutDate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Check-Out Date</label><br>
+                    <input type="date" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" formControlName="checkOutDate"><br>
+                </div>
+                <button type="submit" class="hover:bg-blue-800 dark:bg-blue-600 w-full text-red bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" [disabled]="reservationForm.invalid">Submit</button>          
+              </form>
+
+              <ng-template #showResForm>
+                <div >
+                    <h2 class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are your reservation details: </h2>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Guest name: {{createdReservation.guest.name}}</p>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Guest phone: {{createdReservation.guest.phone}}</p>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Check-In Date: {{createdReservation.checkInDate}}</p>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Check-Out Date: {{createdReservation.checkOutDate}}</p>
+                </div>
+            </ng-template>
+
+            <button class="hover:bg-blue-800 dark:bg-blue-600 w-full text-red bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" (click)="goBackToList()">See More Options</button>
+
+          </div>
+      </div>
+  </div>
+</section>
